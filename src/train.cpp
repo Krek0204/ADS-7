@@ -26,7 +26,8 @@ int Train::getLength() { int length = 1;
   Car* cur = first;
   if (cur == nullptr) return 0;
   cur->light = true;
-  while (true) {
+  bool flag = 1;
+  while (flag) {
     cur = cur->next;
     countOp++;
     if (cur->light == false) {
@@ -39,7 +40,10 @@ int Train::getLength() { int length = 1;
         cur = cur->prev;
         countOp++;
       }
-      if (cur->light == false) break;
+      if (cur->light == false) {
+        flag = 0;
+        continue;
+      }
       else {
         for (int i = 0; i < length; i++) {
           cur = cur->next;
