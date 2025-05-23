@@ -29,6 +29,7 @@ int Train::getLength() { int length = 1;
   while (true) {
     cur = cur->next;
     countOp++;
+    if (countOp > 32) return 0; 
     if (cur->light == false) {
       cur->light = true;
       length++;
