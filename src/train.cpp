@@ -18,7 +18,7 @@ void Train::addCar(bool light_t) {
     cur->next->light = light_t;
     cur->next->prev = cur;
     cur->next->next = first;
-    first->prev = cur;
+    first->prev = cur->next;
   }
 }
 
