@@ -36,16 +36,18 @@ int Train::getLength() { int length = 1;
     } else {
       cur->light = false;
       int steps = length;
-      while (steps--) {
+      while (steps) {
         cur = cur->prev;
         countOp++;
+        steps--;
       }
       if (cur->light == false) return length;
       else {
         steps = length;
-        while (steps--) {
+        while (steps) {
           cur = cur->next;
           countOp++;
+          steps--;
         }
         cur->light = true;
         length++;
